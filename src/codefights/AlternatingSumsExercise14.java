@@ -10,13 +10,12 @@ public class AlternatingSumsExercise14 {
 	    for (int i = 1; i < a.length; i++) {
 	        if (i % 2 == 0) {
 	            tm1Wt = tm1Wt + a[i];
-	        }
-	        
+	        }       
 	        if (i % 2 == 1) {
 	            tm2Wt= tm2Wt + a[i];
 	        }
 	    }
-	    
+
 	    int[] answer = new int[2];
 	    
 	    answer[0] = tm1Wt;
