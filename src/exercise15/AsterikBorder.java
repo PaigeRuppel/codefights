@@ -39,6 +39,7 @@ public class AsterikBorder {
 		String converted = "";
 		String[] answer = new String[input.length + 2];
 		// iterating over the array
+		
 		for (int index = 0; index < input.length; index++) {
 			// converting the string at that index to a char array
 			original = input[index].toCharArray();
