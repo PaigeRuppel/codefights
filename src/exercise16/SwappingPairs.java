@@ -32,6 +32,7 @@ public class SwappingPairs {
 		return swappedPairs;
 	}
 
+	//method will work only for adjacent swaps
 	public int swapAndDifferences(int[] a, int[] b) {
 		int swappedPairs = 0;
 		int differences = 0;
@@ -57,6 +58,7 @@ public class SwappingPairs {
 		return changes;
 	}
 
+	//method for non-adjacent swaps
 	boolean areSimilar(int[] a, int[] b) {
 
 		int differences = 0;
