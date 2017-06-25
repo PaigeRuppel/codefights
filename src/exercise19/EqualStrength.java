@@ -17,7 +17,10 @@ public class EqualStrength {
 					strengthMap.put(strengths[ind], " ");
 				}
 				
-				if (strengthMap.isEmpty()) {
+				if (yourLeft == yourRight && friendsLeft == friendsRight && yourLeft + yourRight != friendsLeft + friendsRight) {
+					return false;
+				}
+				else if (strengthMap.isEmpty()) {
 					return true;
 				}
 			}
