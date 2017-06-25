@@ -8,8 +8,6 @@ public class PalindromeRearrange {
 	public boolean palindromeRearranging(String test) {
 		char[] input = test.toCharArray();
 		Map<Integer, Character> searchForPalindrome = new HashMap<>();
-		int count = 0;
-		int singleOccurrence = 0;
 
 		for (int ind = 0; ind < input.length; ind++) {
 			char character = input[ind];
@@ -28,7 +26,6 @@ public class PalindromeRearrange {
 		} else if (test.length() % 2 == 1 && searchForPalindrome.size() == 1) {
 			return true;
 		}
-		
 			return false;
 	}
 
