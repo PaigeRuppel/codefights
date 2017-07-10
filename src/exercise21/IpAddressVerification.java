@@ -7,6 +7,7 @@ public class IpAddressVerification {
 
 		int meetsReq = 0;
 		int value = 0;
+		
 		for (int i = 0; i < check.length; i++) {
 			try {
 				value = Integer.parseInt(check[i]);
