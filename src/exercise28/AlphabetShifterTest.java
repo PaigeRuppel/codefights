@@ -11,4 +11,11 @@ public class AlphabetShifterTest {
 		String response = underTest.alphabeticShift("abc");
 		Assert.assertEquals("bcd", response);
 	}
+	
+	@Test
+	public void shouldReturnZ() {
+		AlphabetShifter underTest = new AlphabetShifter();
+		String response = underTest.alphabeticShift("z");
+		Assert.assertEquals("a", response);
+	}
 }

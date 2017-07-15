@@ -35,6 +35,17 @@ public class AlphabetShifter {
 		shifter.put('m', "n");
 		shifter.put('n', "o");
 		shifter.put('p', "q");
+		shifter.put('q', "r");
+		shifter.put('r', "s");
+		shifter.put('s', "t");
+		shifter.put('t', "u");
+		shifter.put('u', "v");
+		shifter.put('v', "w");
+		shifter.put('w', "x");
+		shifter.put('x', "y");
+		shifter.put('y', "z");
+		shifter.put('z', "a");
+		
 		
 		return shifter;
 		
