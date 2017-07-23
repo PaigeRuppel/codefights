@@ -14,7 +14,6 @@ public class YearToThresholdCalculator {
 			balance += profit;
 			years++;
 		}
-		
 		return years;
 	}
 
