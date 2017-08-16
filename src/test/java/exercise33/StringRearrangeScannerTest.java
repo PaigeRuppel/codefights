@@ -21,7 +21,7 @@ public class StringRearrangeScannerTest {
 		String a = "cat";
 		String b = "bat";
 
-		assertThat(underTest.areOffByOneChar(a, b), is(true));
+		assertThat(underTest.differByOne(a, b), is(true));
 	}
 
 	@Test
@@ -29,14 +29,7 @@ public class StringRearrangeScannerTest {
 		String a = "cat";
 		String b = "dog";
 
-		assertThat(underTest.areOffByOneChar(a, b), is(false));
-	}
-	
-	@Test
-	public void shouldReturnIsNotDuplicateAaAndBb() {
-		String a = "aa";
-		String b = "bb";
-		assertThat(underTest.isDuplicate(a, b), is(false));
+		assertThat(underTest.differByOne(a, b), is(false));
 	}
 
 	@Test
@@ -83,14 +76,21 @@ public class StringRearrangeScannerTest {
 	}
 
 	@Test
+	public void shouldReturnTrueTestCase8() {
+		String[] inputArray = { "abc", "abx", "axx", "abx", "abc" };
+		assertThat(underTest.stringsRearrangement(inputArray), is (true));
+	}
+
+	// equal number of strings and two pairs of duplicates
+	@Test
 	public void shouldReturnFalseExtendedTestCase() {
 		String[] inputArray = { "abc", "xbc", "xxc", "xbc", "aby", "ayy", "aby", "azc" };
 		assertThat(underTest.stringsRearrangement(inputArray), is(false));
- 	}
-	
+	}
+
 	@Test
 	public void shouldReturnTrueExtendedTestCase() {
-		String [] inputArray = {"abc", "bef", "bcc", "bew", "zew", "zyw", "bec", "bbc", "bdc"};
+		String[] inputArray = { "abc", "bef", "bcc", "bew", "zew", "zyw", "bec", "bbc", "bdc" };
 		assertThat(underTest.stringsRearrangement(inputArray), is(true));
 	}
 }
