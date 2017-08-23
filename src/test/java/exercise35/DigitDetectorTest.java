@@ -18,4 +18,9 @@ public class DigitDetectorTest {
 	public void shouldReturn1() {
 		assertThat(underTest.firstDigit("var_1__Int"), is('1'));
 	}
+	
+	@Test
+	public void shouldReturn2() {
+		assertThat(underTest.firstDigit("q2q-q"), is('2'));
+	}
 }
