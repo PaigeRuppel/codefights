@@ -20,7 +20,13 @@ public class MaxConsecutiveSumCalculatorTest {
 		int[] inputArray = {2, 3, 5, 1, 6};
 		int k = 2;
 		assertThat(underTest.arrayMaxConsecutiveSum(inputArray, k), is(8));
-		
+	}
+	
+	@Test
+	public void shouldReturn14ForTestCase2() {
+		int[] inputArray = {2, 4, 10, 1};
+		int k = 2;
+		assertThat(underTest.arrayMaxConsecutiveSum(inputArray, k), is(14));
 	}
 
 }

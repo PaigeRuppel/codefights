@@ -1,5 +1,8 @@
 package exercise37;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MaxConsecutiveSumCalculator {
 
 	/**
@@ -7,7 +10,28 @@ public class MaxConsecutiveSumCalculator {
 	 * consecutive elements.
 	 */
 	public int arrayMaxConsecutiveSum(int[] inputArray, int k) {
-		return 8;
+		
+		int sumHolder = 0;
+		List<Integer> allSums = new ArrayList<>();
+		//potential sum sets
+		for (int i = 0; i < inputArray.length - k; i++) {
+			for (int add = 0; add < k; add++) {
+				sumHolder += inputArray[i+add];
+				if (add == k - 1) {
+					allSums.add(sumHolder);
+				}
+			}
+			sumHolder = 0;
+		}
+		
+		int maxSum = 0;
+		
+		for (int j = 0; j < allSums.size(); j++) {
+			if (allSums.get(j) > maxSum) {
+				maxSum = allSums.get(j);
+			}
+		}
+		return maxSum;
 	}
 
 }
