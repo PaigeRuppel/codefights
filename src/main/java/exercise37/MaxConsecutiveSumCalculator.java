@@ -10,33 +10,22 @@ public class MaxConsecutiveSumCalculator {
 	 * consecutive elements.
 	 */
 
-	List<Integer> allSums = new ArrayList<>();
-
 	public int arrayMaxConsecutiveSum(int[] inputArray, int k) {
 		int sumHolder = 0;
-
+		int maxSum = 0;
 		// potential sum sets
 		for (int i = 0; i <= inputArray.length - k; i++) {
 			for (int add = 0; add < k; add++) {
 				sumHolder += inputArray[i + add];
-				if (add == k - 1) {
-					allSums.add(sumHolder);
+				if (add == k - 1 && sumHolder > maxSum) {
+					maxSum = sumHolder;
 				}
 			}
 			sumHolder = 0;
 		}
 
-		return findMaxSum();
-	}
-
-	private int findMaxSum() {
-		int maxSum = 0;
-		for (int j = 0; j < allSums.size(); j++) {
-			if (allSums.get(j) > maxSum) {
-				maxSum = allSums.get(j);
-			}
-		}
 		return maxSum;
 	}
+
 
 }
