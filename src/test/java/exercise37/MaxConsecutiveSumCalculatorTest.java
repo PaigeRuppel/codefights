@@ -29,4 +29,10 @@ public class MaxConsecutiveSumCalculatorTest {
 		assertThat(underTest.arrayMaxConsecutiveSum(inputArray, k), is(14));
 	}
 
+	@Test
+	public void shouldReturnn9ForTestCase3() {
+		int[] inputArray = {1, 3, 2, 4};
+		int k = 3;
+		assertThat(underTest.arrayMaxConsecutiveSum(inputArray, k), is(9));
+	}
 }
