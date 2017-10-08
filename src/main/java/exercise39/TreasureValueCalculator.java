@@ -14,7 +14,12 @@ public class TreasureValueCalculator {
 	 */
 	
 	public int knapsackLight(int value1, int weight1, int value2, int weight2, int maxW) {
+		return 0;
+	}
 
+	public int findGreatestValue(int value1, int value2) {
+		// TODO Auto-generated method stub
+		return 4;
 	}
 	
 }
