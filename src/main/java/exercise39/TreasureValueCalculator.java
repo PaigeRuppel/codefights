@@ -14,7 +14,18 @@ public class TreasureValueCalculator {
 	 */
 	
 	public int knapsackLight(int value1, int weight1, int value2, int weight2, int maxW) {
-		return 10;
+		int combinedWeight = weight1 + weight2;
+		int combinedValue = value1 + value2;
+		
+		int maxValue = 0;
+		if (isGreaterThanMaxWeight(combinedWeight, maxW) && !isGreaterThanMaxWeight(weight1, maxW) && !isGreaterThanMaxWeight(weight2, maxW)) {
+			maxValue = findGreatestValue(value1, value2);
+		}
+		if (!isGreaterThanMaxWeight(combinedWeight, maxW)) {
+			maxValue = combinedValue;
+		}
+		
+		return maxValue;
 	}
 
 	public int findGreatestValue(int value1, int value2) {
