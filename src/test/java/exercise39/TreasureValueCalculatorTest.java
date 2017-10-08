@@ -34,6 +34,16 @@ public class TreasureValueCalculatorTest {
 	public void isWeight6GreaterThan6ShouldReturnFalse() {
 		assertFalse(underTest.isGreaterThanMaxWeight(6, 6));
 	}
+	
+	@Test
+	public void testCase1() {
+		int value1 = 10;
+		int weight1 = 5;
+		int value2 = 6;
+		int weight2 = 4;
+		int maxW = 8;
+		assertThat(underTest.knapsackLight(value1, weight1, value2, weight2, maxW), is(10));
+	}
 
 }
  
