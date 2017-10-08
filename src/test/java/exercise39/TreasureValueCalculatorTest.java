@@ -55,5 +55,14 @@ public class TreasureValueCalculatorTest {
 		assertThat(underTest.knapsackLight(value1, weight1, value2, weight2, maxW), is(16));
 	}
 
+	@Test
+	public void testCase3() {
+		int value1 = 5;
+		int weight1 = 3;
+		int value2 = 7;
+		int weight2 = 4;
+		int maxW = 6;
+		assertThat(underTest.knapsackLight(value1, weight1, value2, weight2, maxW), is(7));
+	}
 }
  

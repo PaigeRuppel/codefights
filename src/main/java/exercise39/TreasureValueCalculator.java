@@ -18,7 +18,14 @@ public class TreasureValueCalculator {
 		int combinedValue = value1 + value2;
 		
 		int maxValue = 0;
-		if (isGreaterThanMaxWeight(combinedWeight, maxW) && !isGreaterThanMaxWeight(weight1, maxW) && !isGreaterThanMaxWeight(weight2, maxW)) {
+		if (!isGreaterThanMaxWeight(weight1, maxW)) {
+			maxValue = value1;
+		}
+		if (!isGreaterThanMaxWeight(weight2, maxW)) {
+			maxValue = value2;
+		}
+		if (hasCombinedWeightGreaterThanMaxWeightAndhasIndividualWeightsBothLessThanMaxWeight(weight1, weight2, maxW,
+				combinedWeight)) {
 			maxValue = findGreatestValue(value1, value2);
 		}
 		if (!isGreaterThanMaxWeight(combinedWeight, maxW)) {
@@ -26,6 +33,11 @@ public class TreasureValueCalculator {
 		}
 		
 		return maxValue;
+	}
+
+	private boolean hasCombinedWeightGreaterThanMaxWeightAndhasIndividualWeightsBothLessThanMaxWeight(int weight1,
+			int weight2, int maxW, int combinedWeight) {
+		return isGreaterThanMaxWeight(combinedWeight, maxW) && !isGreaterThanMaxWeight(weight1, maxW) && !isGreaterThanMaxWeight(weight2, maxW);
 	}
 
 	public int findGreatestValue(int value1, int value2) {
