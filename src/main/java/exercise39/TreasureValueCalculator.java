@@ -18,8 +18,11 @@ public class TreasureValueCalculator {
 	}
 
 	public int findGreatestValue(int value1, int value2) {
-		// TODO Auto-generated method stub
-		return 4;
+		int greatestValue = value1;
+		if (value2 > value1) {
+			greatestValue = value2;
+		}
+		return greatestValue;
 	}
 	
 }

@@ -18,5 +18,11 @@ public class TreasureValueCalculatorTest {
 	public void shouldReturnGreatestValue4GivenValues3And4() {
 		assertThat(underTest.findGreatestValue(4, 3), is(4));
 	}
+
+	@Test
+	public void shouldReturnGreatestValue8GivenValues1And8() {
+		assertThat(underTest.findGreatestValue(1, 8), is(8));
+	}
+
 }
  
