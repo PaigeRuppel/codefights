@@ -1,7 +1,8 @@
 package exercise39;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,6 +23,11 @@ public class TreasureValueCalculatorTest {
 	@Test
 	public void shouldReturnGreatestValue8GivenValues1And8() {
 		assertThat(underTest.findGreatestValue(1, 8), is(8));
+	}
+	
+	@Test
+	public void isWeight8GreaterThan6ShouldReturnTrue() {
+		assertTrue(underTest.isGreaterThanMaxWeight(8, 6));
 	}
 
 }

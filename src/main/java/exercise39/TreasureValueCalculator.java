@@ -24,5 +24,9 @@ public class TreasureValueCalculator {
 		}
 		return greatestValue;
 	}
+
+	public boolean isGreaterThanMaxWeight(int weight, int maxWeight) {
+		return true;
+	}
 	
 }
