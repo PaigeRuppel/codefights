@@ -26,16 +26,6 @@ public class TreasureValueCalculatorTest {
 	}
 	
 	@Test
-	public void isWeight8GreaterThan6ShouldReturnTrue() {
-		assertTrue(underTest.isGreaterThanMaxWeight(8, 6));
-	}
-	
-	@Test
-	public void isWeight6GreaterThan6ShouldReturnFalse() {
-		assertFalse(underTest.isGreaterThanMaxWeight(6, 6));
-	}
-	
-	@Test
 	public void testCase1() {
 		int value1 = 10;
 		int weight1 = 5;
