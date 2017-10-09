@@ -1,8 +1,8 @@
 package exercise46;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 public class ElectionProjection {
 
@@ -23,26 +23,28 @@ public class ElectionProjection {
 		int outcomes = 0;
 		int currentMax = 0;
 		int ties = 0;
-		Map<Integer, Integer> withAddedVotes = new HashMap<>();
+		List<Integer> withAddedVotes = new ArrayList<>();
 		
 		for (int i = 0; i < votes.length; i++) {
 			if (votes[i] > currentMax) {
 				currentMax = votes[i];
 			}
-			if (withAddedVotes.containsKey(votes[i])) {
+			if (withAddedVotes.contains(votes[i])) {
 				ties++;
 			}
-			withAddedVotes.put(votes[i], votes[i] + k);
+			withAddedVotes.add((votes[i] + k));
 		}
-		Collection<Integer> newTallies = withAddedVotes.values();
-		for (int current : newTallies) {
+		
+		for (int current : withAddedVotes) {
 			if (current > currentMax) {
 				outcomes++;
 			}
 		}
-		if (k == 0 && ties < votes.length - 2) {
+		
+		if (outcomes == 0 && ties < votes.length - 2) {
 			outcomes = 1;
 		}
+		
 		return outcomes;
 	}
 }
