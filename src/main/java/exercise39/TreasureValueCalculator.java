@@ -16,28 +16,24 @@ public class TreasureValueCalculator {
 	public int knapsackLight(int value1, int weight1, int value2, int weight2, int maxW) {
 		int combinedWeight = weight1 + weight2;
 		int combinedValue = value1 + value2;
-		
+		int possibleCount = 0;
 		int maxValue = 0;
-		if (!isGreaterThanMaxWeight(weight1, maxW)) {
+		if (weight1 <= maxW) {
 			maxValue = value1;
+			possibleCount++;
 		}
-		if (!isGreaterThanMaxWeight(weight2, maxW)) {
+		if (weight2 <= maxW) {
 			maxValue = value2;
+			possibleCount++;
 		}
-		if (hasCombinedWeightGreaterThanMaxWeightAndhasIndividualWeightsBothLessThanMaxWeight(weight1, weight2, maxW,
-				combinedWeight)) {
+		if (combinedWeight > maxW && possibleCount == 2) {
 			maxValue = findGreatestValue(value1, value2);
 		}
-		if (!isGreaterThanMaxWeight(combinedWeight, maxW)) {
+		if (combinedWeight <= maxW) {
 			maxValue = combinedValue;
 		}
 		
 		return maxValue;
-	}
-
-	private boolean hasCombinedWeightGreaterThanMaxWeightAndhasIndividualWeightsBothLessThanMaxWeight(int weight1,
-			int weight2, int maxW, int combinedWeight) {
-		return isGreaterThanMaxWeight(combinedWeight, maxW) && !isGreaterThanMaxWeight(weight1, maxW) && !isGreaterThanMaxWeight(weight2, maxW);
 	}
 
 	public int findGreatestValue(int value1, int value2) {
@@ -47,9 +43,4 @@ public class TreasureValueCalculator {
 		}
 		return greatestValue;
 	}
-
-	public boolean isGreaterThanMaxWeight(int weight, int maxWeight) {
-		return weight > maxWeight;
-	}
-	
 }
