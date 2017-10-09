@@ -32,17 +32,22 @@ public class ElectionProjectionTest {
 		int[] votes = { 5, 1, 4, 3, 1 };
 		assertThat(underTest.electionsWinners(votes, 0), is(1));
 	}
-	
+
 	@Test
 	public void shouldReturn4PossibleWinnersTestCase4() {
 		int[] votes = { 1, 1, 1, 1 };
 		assertThat(underTest.electionsWinners(votes, 1), is(4));
 	}
-	
+
 	@Test
 	public void shouldReturn0PossibleWinnersTestCase5() {
 		int[] votes = { 1, 1, 1, 1 };
-		assertThat(underTest.electionsWinners(votes,0), is(0));
+		assertThat(underTest.electionsWinners(votes, 0), is(0));
 	}
 
+	@Test
+	public void shouldReturn2PossibleWinnersTestCase6() {
+		int[] votes = { 3, 1, 1, 3, 1 };
+		assertThat(underTest.electionsWinners(votes, 2), is(2));
+	}
 }
