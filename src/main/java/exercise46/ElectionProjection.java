@@ -22,11 +22,15 @@ public class ElectionProjection {
 	public int electionsWinners(int[] votes, int k) {
 		int outcomes = 0;
 		int currentMax = 0;
+		int ties = 0;
 		Map<Integer, Integer> withAddedVotes = new HashMap<>();
 		
 		for (int i = 0; i < votes.length; i++) {
 			if (votes[i] > currentMax) {
 				currentMax = votes[i];
+			}
+			if (withAddedVotes.containsKey(votes[i])) {
+				ties++;
 			}
 			withAddedVotes.put(votes[i], votes[i] + k);
 		}
@@ -35,6 +39,9 @@ public class ElectionProjection {
 			if (current > currentMax) {
 				outcomes++;
 			}
+		}
+		if (k == 0 && ties < votes.length - 2) {
+			outcomes = 1;
 		}
 		return outcomes;
 	}
