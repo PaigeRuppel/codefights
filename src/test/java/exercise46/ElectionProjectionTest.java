@@ -21,4 +21,11 @@ public class ElectionProjectionTest {
 		int[] votes = {2, 3, 5, 2};
 		assertThat(underTest.electionsWinners(votes, 3), is(2));
 	}
+
+	@Test
+	public void shouldReturn0PossibleWinnersTestCase2() {
+		int[] votes = {1, 3, 3, 1, 1};
+		assertThat(underTest.electionsWinners(votes, 0), is(0));
+	}
+	
 }

@@ -1,7 +1,10 @@
 package exercise46;
 
-public class ElectionProjection {
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
+public class ElectionProjection {
 
 	/*
 	 * Elections are in progress!
@@ -16,7 +19,23 @@ public class ElectionProjection {
 	 * votes, assume there is no winner at all.
 	 */
 
-	public Object electionsWinners(int[] votes, int k) {
-		return 2;
+	public int electionsWinners(int[] votes, int k) {
+		int outcomes = 0;
+		int currentMax = 0;
+		Map<Integer, Integer> withAddedVotes = new HashMap<>();
+		
+		for (int i = 0; i < votes.length; i++) {
+			if (votes[i] > currentMax) {
+				currentMax = votes[i];
+			}
+			withAddedVotes.put(votes[i], votes[i] + k);
+		}
+		Collection<Integer> newTallies = withAddedVotes.values();
+		for (int current : newTallies) {
+			if (current > currentMax) {
+				outcomes++;
+			}
+		}
+		return outcomes;
 	}
 }
