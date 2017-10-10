@@ -6,13 +6,13 @@ import java.util.List;
 public class MacVerification {
 
 	public static List<Character> validChars = new ArrayList<>();
+	
 	public boolean isMAC8Address(String inputString) {
-		buildValidCharList();
-		String[] splitOnHyphens = inputString.split("-");
-
 		boolean valid = true;
+		buildValidCharList();
+		String[] splitOnHyphens = inputString.split("-", 6);
+		valid = isValidLength(splitOnHyphens);
 		
-		valid = isValidLength(splitOnHyphens, valid);
 		
 		for (int i = 0; i < splitOnHyphens.length; i++) {
 			char[] pair = splitOnHyphens[i].toCharArray();
@@ -23,16 +23,16 @@ public class MacVerification {
 		
 		return valid;
 	}
-
+	
+//	private boolean isValidPattern(String input) {
+//		return 
+//	}
 	private boolean isValidPair(char[] pair) {
 		return pair.length == 2 && validChars.contains(pair[0]) && validChars.contains(pair[1]);
 	}
 
-	private boolean isValidLength(String[] splitOnHyphens, boolean valid) {
-		if (splitOnHyphens.length != 6) {
-			valid = false;
-		}
-		return valid;
+	private boolean isValidLength(String[] splitOnHyphens) {
+		return splitOnHyphens.length == 6;
 	}
 	
 	private void buildValidCharList() {
