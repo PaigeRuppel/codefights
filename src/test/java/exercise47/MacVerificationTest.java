@@ -38,4 +38,10 @@ public class MacVerificationTest {
 	public void macAddressAll0sIsTrueTestCase5() {
 		assertTrue(underTest.isMAC8Address("00-00-00-00-00-00"));
 	}
+	
+	@Test
+	public void macAddressWithGIsFalseTestCase6() {
+		assertFalse(underTest.isMAC8Address("G0-00-00-00-00-00"));
+	}
+	
 }
