@@ -12,17 +12,26 @@ public class MacVerification {
 
 		boolean valid = true;
 		
-		if (splitOnHyphens.length != 6) {
-			return false;
-		}
+		valid = isValidLength(splitOnHyphens, valid);
 		
 		for (int i = 0; i < splitOnHyphens.length; i++) {
 			char[] pair = splitOnHyphens[i].toCharArray();
-			if (pair.length != 2 || !validChars.contains(pair[0]) || !validChars.contains(pair[1])) {
-				return false;
+			if (!isValidPair(pair)) {
+				valid = false;
 			}
 		}
 		
+		return valid;
+	}
+
+	private boolean isValidPair(char[] pair) {
+		return pair.length == 2 && validChars.contains(pair[0]) && validChars.contains(pair[1]);
+	}
+
+	private boolean isValidLength(String[] splitOnHyphens, boolean valid) {
+		if (splitOnHyphens.length != 6) {
+			valid = false;
+		}
 		return valid;
 	}
 	
