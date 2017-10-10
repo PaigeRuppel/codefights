@@ -28,4 +28,14 @@ public class MacVerificationTest {
 	public void stringEntryIsFalseTestCase3() {
 		assertFalse(underTest.isMAC8Address("not a Mac-48 address"));
 	}
+
+	@Test
+	public void macAddressAllFsIsTrueTestCase4() {
+		assertTrue(underTest.isMAC8Address("FF-FF-FF-FF-FF-FF"));
+	}
+
+	@Test
+	public void macAddressAll0sIsTrueTestCase5() {
+		assertTrue(underTest.isMAC8Address("00-00-00-00-00-00"));
+	}
 }
