@@ -1,8 +1,10 @@
 package exercise46;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ElectionProjection {
 
@@ -19,14 +21,15 @@ public class ElectionProjection {
 	 * votes, assume there is no winner at all.
 	 */
 
+
 	public int electionsWinners(int[] votes, int k) {
-		int outcomes = 0;
+		int possibleOutcomes = 0;
 		int currentMax = 0;
 		int ties = 0;
 		List<Integer> withAddedVotes = new ArrayList<>();
 		
 		for (int i = 0; i < votes.length; i++) {
-			if (votes[i] > currentMax) {
+			if (isGreaterThanCurrentMax(votes[i], currentMax)) {
 				currentMax = votes[i];
 			}
 			if (withAddedVotes.contains(votes[i])) {
@@ -36,15 +39,23 @@ public class ElectionProjection {
 		}
 		
 		for (int current : withAddedVotes) {
-			if (current > currentMax) {
-				outcomes++;
+			if (isGreaterThanCurrentMax(current, currentMax)) {
+				possibleOutcomes++;
 			}
 		}
 		
-		if (outcomes == 0 && ties < votes.length - 2) {
-			outcomes = 1;
+		if (isPossibleWinnerAndNoAdditionalVotes(votes, k, ties)) {
+			possibleOutcomes = 1;
 		}
 		
-		return outcomes;
+		return possibleOutcomes;
+	}
+
+	private boolean isGreaterThanCurrentMax(int compare, int max) {
+		return compare > max;
+	}
+
+	private boolean isPossibleWinnerAndNoAdditionalVotes(int[] votes, int k, int ties) {
+		return k == 0 && ties < votes.length - 2;
 	}
 }
