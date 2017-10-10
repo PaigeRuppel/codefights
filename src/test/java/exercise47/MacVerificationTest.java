@@ -48,4 +48,10 @@ public class MacVerificationTest {
 	public void macAddressWithTrailingHyphenIsFalseTestCase7() {
 		assertFalse(underTest.isMAC8Address("02-03-04-05-06-07-"));
 	}
+	
+	@Test
+	public void macAddressWithAllValidCharsIsTrueTestCase8() {
+		assertTrue(underTest.isMAC8Address("12-34-56-78-9A-BC"));
+	}
+
 }
