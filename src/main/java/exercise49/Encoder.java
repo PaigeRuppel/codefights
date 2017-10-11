@@ -1,29 +1,19 @@
 package exercise49;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Encoder {
 
-	public String lineEncoding(String input) {
-		String encoded = "";
-		char[] asArray = input.toCharArray();
-		int count = 1;
-
-		for (int first = 0, next = 1; next < asArray.length; first++, next++) {
-			if (asArray[first] == asArray[next]) {
-				count++;
-			} else {
-				encoded += count + "" + asArray[first];
-				count = 1;
-			}
-			if (next == asArray.length - 1) {
-				encoded += count + "" + asArray[next];
-			}
-		}
-		encoded = encoded.replaceAll("1", "");
-
-		return encoded;
+	public String lineEncoding(String s) {
+	    Matcher m = Pattern.compile("([a-z])\\1*").matcher(s);
+	    String result = "";
+	    while(m.find()){
+	        int len = m.group(0).length();
+	        char cha = m.group(0).charAt(0);
+	        result += (len==1?"":len) + "" + cha;
+	    }
+	    return result;
 	}
 
 }

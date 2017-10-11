@@ -25,4 +25,8 @@ public class EncoderTest {
 		assertThat(underTest.lineEncoding("abbcabb"), is("a2bca2b"));
 	}
 	
+	@Test
+	public void shouldReturnAbcdFromAbcd() {
+		assertThat(underTest.lineEncoding("abcd"), is("abcd"));
+	}
 }
