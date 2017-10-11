@@ -19,4 +19,8 @@ public class DigitVerificationTest {
 		assertTrue(underTest.isDigit('0'));
 	}
 	
+	@Test
+	public void shouldReturnFalseForHyphen() {
+		assertFalse(underTest.isDigit('-'));
+	}
 }
