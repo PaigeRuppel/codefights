@@ -40,7 +40,7 @@ public class MacVerificationTest {
 	}
 	
 	@Test
-	public void macAddressWithGIsFalseTestCase6() {
+	public void macAddressWithGIsFalseTestCase6() { 
 		assertFalse(underTest.isMAC8Address("G0-00-00-00-00-00"));
 	}
 	
