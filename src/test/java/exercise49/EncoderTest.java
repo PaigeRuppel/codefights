@@ -19,4 +19,10 @@ public class EncoderTest {
 	public void shouldReturn2a3bcFromAabbbc() {
 		assertThat(underTest.lineEncoding("aabbbc"), is("2a3bc"));
 	}
+
+	@Test
+	public void shouldReturnA2bca2bFromAbbcabb() {
+		assertThat(underTest.lineEncoding("abbcabb"), is("a2bca2b"));
+	}
+	
 }
