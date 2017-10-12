@@ -35,8 +35,9 @@ public class ChessBoardTest {
 		assertThat(underTest.chessKnight("G6"), is(6));
 	}
 	
-	//f6 - f3 - c3 - c6 == 8 moves
-	//c2-f2, c7-f7, b3-b6, g3-g6 == 6 moves
-	//b2, b7, g2, g7 == 4 moves
+	@Test
+	public void shouldReturnThreePossibleMovesFromPositionB8() {
+		assertThat(underTest.chessKnight("B8"), is(3));
+	}
 	
 }
