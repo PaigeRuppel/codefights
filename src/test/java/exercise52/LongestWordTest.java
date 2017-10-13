@@ -19,4 +19,14 @@ public class LongestWordTest {
 	public void shouldReturnSteadyFromReadySteadyGo() {
 		assertThat(underTest.longestWord("ready, steady, go"), is("steady"));
 	}
+	
+	@Test
+	public void shouldReturnSteadyFromReadySteadyGoWithConfoundingBrackets() {
+		assertThat(underTest.longestWord("ready[[[, steady, go"), is("steady"));
+	}
+	
+	@Test
+	public void shouldReturnOriginalStringFromSingleWord() {
+		assertThat(underTest.longestWord("ABcd"), is("ABcd"));
+	}
 }
