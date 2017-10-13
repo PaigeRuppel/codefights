@@ -29,4 +29,9 @@ public class LongestWordTest {
 	public void shouldReturnOriginalStringFromSingleWord() {
 		assertThat(underTest.longestWord("ABcd"), is("ABcd"));
 	}
+	
+	@Test
+	public void shouldReturnElephantFromConfusingString() {
+		assertThat(underTest.longestWord("ele111pha]], lionmae, giraffe, elephant"), is("elephant"));
+	}
 }
