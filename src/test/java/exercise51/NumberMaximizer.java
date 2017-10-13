@@ -1,15 +1,15 @@
 package exercise51;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class NumberMaximizer {
 
 	public int deleteDigit(int n) {
 		int maxRange = 0;
-		int indexToRemove = 0;
-		int minimum = 0;
 		List<Integer> digits = buildDigits(n);
+		int indexToRemove = 0;
 		
 		// in each case we are looking to remove the smallest number followed by the largest number
 		for (int first = 0, next = 1; next < digits.size(); first++, next++) {
@@ -17,16 +17,13 @@ public class NumberMaximizer {
 				maxRange = digits.get(next) - digits.get(first);
 				indexToRemove = first;
 			}
-			minimum = Math.min(minimum, digits.get(next));
 		}
 		
 		if (maxRange == 0) {
-			
-		
+			indexToRemove = digits.indexOf(getMinimum(digits));
 		}
 		
 		digits.remove(indexToRemove);
-		
 		
 		String answer = "";
 		
@@ -37,6 +34,11 @@ public class NumberMaximizer {
 		return Integer.parseInt(answer);
 	}
 
+	private int getMinimum(List<Integer> digits) {
+		Collections.sort(digits);
+		return digits.get(0);
+	}
+	
 	private List<Integer> buildDigits(int n) {
 		List<Integer> digits = new ArrayList<>();
 		int temp = 0;
