@@ -35,4 +35,8 @@ public class NumberMaximizerTest {
 		assertThat(underTest.deleteDigit(222219), is(22229));
 	}
 	
+	@Test
+	public void shouldReturn11From110() {
+		assertThat(underTest.deleteDigit(110), is(11));
+	}
 }
