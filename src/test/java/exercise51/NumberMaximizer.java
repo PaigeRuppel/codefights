@@ -7,8 +7,9 @@ public class NumberMaximizer {
 
 	public int deleteDigit(int n) {
 		int maxRange = 0;
-		int indexToRemove = 0;
+		int indexToRemove = 1;
 		List<Integer> digits = buildDigits(n);
+		// in each case we are looking to remove the smallest number followed by the largest number
 		for (int first = 0, next = 1; next < digits.size(); first++, next++) {
 			if (digits.get(next) - digits.get(first) > maxRange) {
 				maxRange = digits.get(next) - digits.get(first);
@@ -18,6 +19,7 @@ public class NumberMaximizer {
 		
 		digits.remove(indexToRemove);
 		String answer = "";
+		
 		for (int current : digits) {
 			answer += "" + current;
 		}

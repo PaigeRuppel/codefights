@@ -25,4 +25,14 @@ public class NumberMaximizerTest {
 		assertThat(underTest.deleteDigit(1001), is(101));
 	}
 	
+	@Test
+	public void shouldReturn1From10() {
+		assertThat(underTest.deleteDigit(10), is(1));
+	}
+	
+	@Test
+	public void shouldReturn22229From222219() {
+		assertThat(underTest.deleteDigit(222219), is(22229));
+	}
+	
 }
