@@ -8,7 +8,7 @@ public class Clock {
 		String[] hourAndMin = time.split(":");
 		int hour = Integer.parseInt((hourAndMin[0]));
 		int min = Integer.parseInt(hourAndMin[1]);
-		return hour >= 0 && hour <= 24 && min >= 0 && min <= 59;
+		return hour >= 0 && hour <= 23 && min >= 0 && min <= 59;
 	}
 
 }

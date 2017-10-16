@@ -29,4 +29,8 @@ public class ClockTest {
 		assertFalse(underTest.isValidTime("02:76"));
 	}
 	
+	@Test
+	public void shouldReturnFalseFor2416() {
+		assertFalse(underTest.isValidTime("24:16"));
+	}
 }
