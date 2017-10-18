@@ -13,10 +13,24 @@ public class Ratiorg {
 	 */
 	
 	public int sumUpNumbers(String inputString) {
-		String[] digits = inputString.split("\\D");
-		int sum = Integer.parseInt(digits[0]);
+		String[] parts = inputString.split("\\D");
+		Integer sum = 0;
+		for (int i = 0; i < parts.length; i++) {
+			Integer index = tryParse(parts[i]);
+			if (index != null) {
+				sum += index;
+			}
+		}
 	
 		return sum;
 	}
+	
+	public static Integer tryParse(String text) {
+		  try {
+		    return Integer.parseInt(text);
+		  } catch (NumberFormatException e) {
+		    return null;
+		  }
+		}
 	
 }
