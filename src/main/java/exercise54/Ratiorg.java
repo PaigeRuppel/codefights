@@ -17,9 +17,7 @@ public class Ratiorg {
 		Integer sum = 0;
 		for (int i = 0; i < parts.length; i++) {
 			Integer index = tryParse(parts[i]);
-			if (index != null) {
-				sum += index;
-			}
+			sum += index;
 		}
 		return sum;
 	}
@@ -28,7 +26,7 @@ public class Ratiorg {
 		  try {
 		    return Integer.parseInt(text);
 		  } catch (NumberFormatException e) {
-		    return null;
+		    return 0;
 		  }
 		}
 	
