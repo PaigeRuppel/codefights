@@ -25,5 +25,9 @@ public class RatiorgTest {
 		assertThat(underTest.sumUpNumbers("123450"), is(123450));
 	}
 	
+	@Test
+	public void shouldReturn0FromStringWithNoDigits() {
+		assertThat(underTest.sumUpNumbers("Your payment method is invalid"), is(0));
+	}
 	
 }

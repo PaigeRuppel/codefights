@@ -21,7 +21,6 @@ public class Ratiorg {
 				sum += index;
 			}
 		}
-	
 		return sum;
 	}
 	
