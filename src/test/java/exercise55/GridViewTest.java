@@ -34,5 +34,12 @@ public class GridViewTest {
 
 		assertThat(underTest.differentSquares(matrix), is(0));
 	}
+	
+	@Test
+	public void shouldReturn0SquaresTestCase4() {
+		int[][] matrix = { { 3, 4, 5, 6, 7, 8 } };
+
+		assertThat(underTest.differentSquares(matrix), is(0));
+	}
 
 }
