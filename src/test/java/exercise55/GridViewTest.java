@@ -28,25 +28,7 @@ public class GridViewTest {
 		assertThat(underTest.differentSquares(matrix), is(1));
 	}
 	
-	@Test
-	public void shouldReturnTrueForPosition00() {
-		int[][] matrix = { { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 },
-				{ 9, 9, 9, 9, 9 } };
-		assertTrue(underTest.isUpperLeftCornerOfSquare(matrix, 0, 0));
-	}
-
-	@Test
-	public void shouldReturnFalseForPosition04() {
-		int[][] matrix = { { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 },
-				{ 9, 9, 9, 9, 9 } };
-		assertFalse(underTest.isUpperLeftCornerOfSquare(matrix, 0, 4));
-	}
-
-	@Test
-	public void shouldReturnFalseForPosition40() {
-		int[][] matrix = { { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 },
-				{ 9, 9, 9, 9, 9 } };
-		assertFalse(underTest.isUpperLeftCornerOfSquare(matrix, 4, 0));
-	}
+	
+	
 
 }
