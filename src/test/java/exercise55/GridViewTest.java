@@ -35,4 +35,10 @@ public class GridViewTest {
 		assertTrue(underTest.isUpperLeftCornerOfSquare(matrix, 0, 0));
 	}
 
+	@Test
+	public void shouldReturnFalseForPosition04() {
+		int[][] matrix = { { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 }, { 9, 9, 9, 9, 9 },
+				{ 9, 9, 9, 9, 9 } };
+		assertFalse(underTest.isUpperLeftCornerOfSquare(matrix, 0, 4));
+	}
 }

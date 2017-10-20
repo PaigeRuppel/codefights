@@ -25,8 +25,8 @@ public class GridView {
 	}
 
 	public boolean isUpperLeftCornerOfSquare(int[][] matrix, int x, int y) {
-		// TODO Auto-generated method stub
-		return true;
+		int length = matrix.length;
+		return y < length - 1;
 	}
 
 }
