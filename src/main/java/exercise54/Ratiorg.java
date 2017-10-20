@@ -11,7 +11,7 @@ public class Ratiorg {
 	 * Help Ratiorg by writing a function that returns the sum of numbers that
 	 * appear in the given inputString.
 	 */
-	
+
 	public int sumUpNumbers(String inputString) {
 		String[] parts = inputString.split("\\D");
 		Integer sum = 0;
@@ -21,13 +21,13 @@ public class Ratiorg {
 		}
 		return sum;
 	}
-	
+
 	public static Integer tryParse(String text) {
-		  try {
-		    return Integer.parseInt(text);
-		  } catch (NumberFormatException e) {
-		    return 0;
-		  }
+		try {
+			return Integer.parseInt(text);
+		} catch (NumberFormatException e) {
+			return 0;
 		}
-	
+	}
+
 }
