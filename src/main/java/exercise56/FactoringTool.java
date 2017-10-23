@@ -1,5 +1,8 @@
 package exercise56;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FactoringTool {
 
 	/*
@@ -9,7 +12,28 @@ public class FactoringTool {
 	 */
 	
 	public int digitsProduct(int product) {
-		return 26;
+		List<Integer> factors = new ArrayList<>();
+		
+		int temp = product;
+		String converted = "-1";
+		
+		for(int i=2; i <= temp; i++){
+            while(temp % i==0){
+                factors.add(i);
+                temp = temp/i;
+
+                if (factors.get(0) * temp == product) {
+                	converted = factors.get(0) + "" + temp;
+                }
+            }
+        }
+		
+		if (factors.contains(product)) {
+			converted = "-1";
+		}
+		
+		return Integer.parseInt(converted);
+		
 	}
 
 }

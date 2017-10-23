@@ -20,4 +20,13 @@ public class FactoringToolTest {
 		assertThat(underTest.digitsProduct(12), is(26));
 	}
 
+	@Test
+	public void shouldReturnNegative1From18TestCase2() {
+		assertThat(underTest.digitsProduct(19), is(-1));
+	}
+	
+	@Test
+	public void shouldReturnNegative2559From450TestCase3() {
+		assertThat(underTest.digitsProduct(450), is(2559));
+	}
 }
