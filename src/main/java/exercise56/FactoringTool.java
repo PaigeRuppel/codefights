@@ -22,6 +22,7 @@ public class FactoringTool {
 		} 
 		
 		int checkAnswer = 1;
+		
 		for (int i = 0; i < factors.size(); i++) {
 			smallestIntAnswer.append(factors.get(i));
 			checkAnswer *= factors.get(i);
