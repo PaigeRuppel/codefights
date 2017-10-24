@@ -23,7 +23,12 @@ public class FactoringTool {
 			factors = generateFactors(temp);
 		} 
 		
-		if (factors.size() > 0) {
+		if (factors.size() == 1 && product < 10) {
+			converted.delete(0, 2);
+			for (int i = 0; i < factors.size(); i++) {
+				converted.append(factors.get(i));
+			}
+		} else if (factors.size() > 1) {
 			converted.delete(0, 2);
 			for (int i = 0; i < factors.size(); i++) {
 				converted.append(factors.get(i));
