@@ -57,4 +57,9 @@ public class FactoringToolTest {
 	public void shouldReturnNegatve1From33() {
 		assertThat(underTest.digitsProduct(33), is(-1));
 	}
+	
+	@Test
+	public void shouldReturn889From576() {
+		assertThat(underTest.digitsProduct(576), is(889));
+	}
 }

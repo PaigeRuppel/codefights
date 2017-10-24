@@ -10,11 +10,10 @@ public class FactoringTool {
 	 * integer the product of whose digits is equal to product. If there is no such
 	 * integer, return -1 instead.
 	 */
-
 	private List<Integer> factors = new ArrayList<>();
 
 	public int digitsProduct(int product) {
-		StringBuffer converted = new StringBuffer();
+		StringBuffer smallestIntAnswer = new StringBuffer();
 		getSingleDigitAnswer(product);
 		
 		if (product >= 10) {
@@ -22,25 +21,22 @@ public class FactoringTool {
 			generateFactors(product);
 		} 
 		
-		int checkProduct = 1;
-		
+		int checkAnswer = 1;
 		for (int i = 0; i < factors.size(); i++) {
-			converted.append(factors.get(i));
-			checkProduct *= factors.get(i);
+			smallestIntAnswer.append(factors.get(i));
+			checkAnswer *= factors.get(i);
 		}
 	
-		if (checkProduct != product && product > 9) {
-			converted.replace(0, factors.size(), "-1");
+		if (checkAnswer != product && product > 9) {
+			smallestIntAnswer.replace(0, factors.size(), "-1");
 		}
-
-		return Integer.parseInt(converted.toString());
-
+		
+		return Integer.parseInt(smallestIntAnswer.toString());
 	}
 
 	private void generateFactors(int product) {
 		for (int factor = 9; factor >= 2; factor--) {
 			while (product % factor == 0) {
-				//add to 0 to generate in ascending order
 				factors.add(0, factor);
 				product = product / factor;
 			}
@@ -48,6 +44,7 @@ public class FactoringTool {
 	}
 	
 	private void getSingleDigitAnswer(int temp) {
+		// handles codefights logic edge cases 
 		if (temp == 0) {
 			factors.add(10);
 		} else {
