@@ -11,16 +11,18 @@ public class FactoringTool {
 	 * integer, return -1 instead.
 	 */
 
+	private List<Integer> factors = new ArrayList<>();
+
 	public int digitsProduct(int product) {
 
 		int temp = product;
 		StringBuffer converted = new StringBuffer();
 		converted.append(-1);
-		List<Integer> factors = getSingleDigitAnswer(temp);
+		getSingleDigitAnswer(temp);
 		
 		if (product >= 10) {
 			factors.clear();
-			factors = generateFactors(temp);
+			generateFactors(temp);
 		} 
 		
 		if (factors.size() == 1 && product < 10) {
@@ -39,8 +41,7 @@ public class FactoringTool {
 
 	}
 
-	private List<Integer> generateFactors(int temp) {
-		List<Integer> factors = new ArrayList<>();
+	private void generateFactors(int temp) {
 		for (int factor = 9; factor >= 2; factor--) {
 			while (temp % factor == 0) {
 				//add to 0 to generate in ascending order
@@ -48,17 +49,14 @@ public class FactoringTool {
 				temp = temp / factor;
 			}
 		}
-		return factors;
 	}
 	
-	private List<Integer> getSingleDigitAnswer(int temp) {
-		List<Integer> factors = new ArrayList<>();
+	private void getSingleDigitAnswer(int temp) {
 		if (temp == 0) {
 			factors.add(10);
 		} else {
 			factors.add(temp);
 		}
-		return factors;
 	}
 	
 }
