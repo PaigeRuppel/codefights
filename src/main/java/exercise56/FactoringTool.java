@@ -15,22 +15,16 @@ public class FactoringTool {
 
 	public int digitsProduct(int product) {
 
-		int temp = product;
 		StringBuffer converted = new StringBuffer();
 		converted.append(-1);
-		getSingleDigitAnswer(temp);
+		getSingleDigitAnswer(product);
 		
 		if (product >= 10) {
 			factors.clear();
-			generateFactors(temp);
+			product = generateFactors(product);
 		} 
 		
-		if (factors.size() == 1 && product < 10) {
-			converted.delete(0, 2);
-			for (int i = 0; i < factors.size(); i++) {
-				converted.append(factors.get(i));
-			}
-		} else if (factors.size() > 1) {
+		if (factors.size() > 0) {
 			converted.delete(0, 2);
 			for (int i = 0; i < factors.size(); i++) {
 				converted.append(factors.get(i));
@@ -41,14 +35,15 @@ public class FactoringTool {
 
 	}
 
-	private void generateFactors(int temp) {
+	private int generateFactors(int product) {
 		for (int factor = 9; factor >= 2; factor--) {
-			while (temp % factor == 0) {
+			while (product % factor == 0) {
 				//add to 0 to generate in ascending order
 				factors.add(0, factor);
-				temp = temp / factor;
+				product = product / factor;
 			}
 		}
+		return product;
 	}
 	
 	private void getSingleDigitAnswer(int temp) {
