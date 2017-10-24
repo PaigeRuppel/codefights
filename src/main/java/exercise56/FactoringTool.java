@@ -10,28 +10,45 @@ public class FactoringTool {
 	 * integer the product of whose digits is equal to product. If there is no such
 	 * integer, return -1 instead.
 	 */
+	private List<Integer> factors = new ArrayList<>();
 
 	public int digitsProduct(int product) {
-		List<Integer> factors = new ArrayList<>();
 
 		int temp = product;
-		String converted = "";
+		StringBuffer converted = new StringBuffer(-1);
+		getSingleDigitAnswer(temp);
+		
+		if (product >= 10) {
+			factors.clear();
+			generateFactors(temp);
+		} 
+		
+		if (factors.size() > 0) {
+			converted.delete(0, 2);
+			for (int i = 0; i < factors.size(); i++) {
+				converted.append(factors.get(i));
+			}
+		}
 
-		// try starting from 9 and working down to 2 instead... Will eliminate having duplicate 2s 3s etc 
+		return Integer.parseInt(converted.toString());
+
+	}
+
+	private void generateFactors(int temp) {
 		for (int factor = 9; factor >= 2; factor--) {
 			while (temp % factor == 0) {
+				//add to 0 to generate in ascending order
 				factors.add(0, factor);
 				temp = temp / factor;
 			}
 		}
-		if (factors.size() == 0) {
-			converted = "-1";
+	}
+	
+	private void getSingleDigitAnswer(int temp) {
+		if (temp == 0) {
+			factors.add(10);
 		} else {
-			for (int i = 0; i < factors.size(); i++) {
-				converted += "" + factors.get(i);
-			}
+			factors.add(temp);
 		}
-		return Integer.parseInt(converted);
-
 	}
 }

@@ -26,7 +26,19 @@ public class FactoringToolTest {
 	}
 	
 	@Test
-	public void shouldReturnNegative2559From450TestCase3() {
+	public void shouldReturn2559From450TestCase3() {
 		assertThat(underTest.digitsProduct(450), is(2559));
+	}
+
+	// codefights logic... 0 should return 10...
+	@Test
+	public void shouldReturn10From0TestCase4() {
+		assertThat(underTest.digitsProduct(0), is(10));
+	}
+	
+	// codefights logic... single digits should return themselves
+	@Test
+	public void shouldReturn1From1() {
+		assertThat(underTest.digitsProduct(1), is(1));
 	}
 }
