@@ -14,9 +14,8 @@ public class FactoringTool {
 	private List<Integer> factors = new ArrayList<>();
 
 	public int digitsProduct(int product) {
-
+		int givenProd = product;
 		StringBuffer converted = new StringBuffer();
-		converted.append(-1);
 		getSingleDigitAnswer(product);
 		
 		if (product >= 10) {
@@ -24,11 +23,14 @@ public class FactoringTool {
 			product = generateFactors(product);
 		} 
 		
-		if (factors.size() > 0) {
-			converted.delete(0, 2);
-			for (int i = 0; i < factors.size(); i++) {
-				converted.append(factors.get(i));
-			}
+		int checkProduct = 1;
+		for (int i = 0; i < factors.size(); i++) {
+			converted.append(factors.get(i));
+			checkProduct *= factors.get(i);
+		}
+	
+		if (checkProduct != givenProd && givenProd > 9) {
+			converted.replace(0, factors.size(), "-1");
 		}
 
 		return Integer.parseInt(converted.toString());
