@@ -1,7 +1,7 @@
 package exercise57;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UniqueFileCatalog {
 
@@ -15,15 +15,9 @@ public class UniqueFileCatalog {
 	 */
 	
 	public String[] fileNaming(String[] names) {
-		List<String> uniqueNames = new ArrayList<>();
-		int count = 1;
+		Set<String> uniqueNames = new HashSet<>();
 		for (int i = 0; i < names.length; i++ ) {
-			if (!uniqueNames.contains(names[i])) {
-				uniqueNames.add(i, names[i]);
-			} else {
-				count++;
-				uniqueNames.add(i, names[i] + "(" + count+ ")");
-			}
+			uniqueNames.add(names[i]);
 		}
 		String[] answer = uniqueNames.toArray(new String[names.length]);
 		return answer;
