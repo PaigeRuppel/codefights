@@ -21,17 +21,14 @@ public class FactoringTool {
             while(temp % i==0){
                 factors.add(i);
                 temp = temp/i;
-
                 if (factors.get(0) * temp == product) {
                 	converted = factors.get(0) + "" + temp;
                 }
             }
         }
-		
 		if (factors.contains(product)) {
 			converted = "-1";
 		}
-		
 		return Integer.parseInt(converted);
 		
 	}
