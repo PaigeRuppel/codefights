@@ -41,4 +41,14 @@ public class FactoringToolTest {
 	public void shouldReturn1From1() {
 		assertThat(underTest.digitsProduct(1), is(1));
 	}
+
+	@Test
+	public void shouldReturn2From2() {
+		assertThat(underTest.digitsProduct(2), is(2));
+	}
+
+	@Test
+	public void shouldReturn9From9() {
+		assertThat(underTest.digitsProduct(9), is(9));
+	}
 }

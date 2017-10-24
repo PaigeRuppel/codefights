@@ -10,17 +10,17 @@ public class FactoringTool {
 	 * integer the product of whose digits is equal to product. If there is no such
 	 * integer, return -1 instead.
 	 */
-	private List<Integer> factors = new ArrayList<>();
 
 	public int digitsProduct(int product) {
 
 		int temp = product;
-		StringBuffer converted = new StringBuffer(-1);
-		getSingleDigitAnswer(temp);
+		StringBuffer converted = new StringBuffer();
+		converted.append(-1);
+		List<Integer> factors = getSingleDigitAnswer(temp);
 		
 		if (product >= 10) {
 			factors.clear();
-			generateFactors(temp);
+			factors = generateFactors(temp);
 		} 
 		
 		if (factors.size() > 0) {
@@ -34,7 +34,8 @@ public class FactoringTool {
 
 	}
 
-	private void generateFactors(int temp) {
+	private List<Integer> generateFactors(int temp) {
+		List<Integer> factors = new ArrayList<>();
 		for (int factor = 9; factor >= 2; factor--) {
 			while (temp % factor == 0) {
 				//add to 0 to generate in ascending order
@@ -42,13 +43,17 @@ public class FactoringTool {
 				temp = temp / factor;
 			}
 		}
+		return factors;
 	}
 	
-	private void getSingleDigitAnswer(int temp) {
+	private List<Integer> getSingleDigitAnswer(int temp) {
+		List<Integer> factors = new ArrayList<>();
 		if (temp == 0) {
 			factors.add(10);
 		} else {
 			factors.add(temp);
 		}
+		return factors;
 	}
+	
 }
