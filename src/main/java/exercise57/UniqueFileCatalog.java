@@ -1,8 +1,6 @@
 package exercise57;
 
-import java.util.Dictionary;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Set;
 
 public class UniqueFileCatalog {
@@ -18,26 +16,19 @@ public class UniqueFileCatalog {
 
 	public String[] fileNaming(String[] names) {
 		Set<String> uniqueNames = new HashSet<String>();
-
-		int k = 1;
 		String[] validNames = new String[names.length];
 		for (int i = 0; i < names.length; i++) {
-			if (!uniqueNames.contains(names[i])) {
-				uniqueNames.add(names[i]);
-				validNames[i] = names[i];
+			String currentEntry = names[i];
+			if (!uniqueNames.contains(currentEntry)) {
+				uniqueNames.add(currentEntry);
+				validNames[i] = currentEntry;
 			} else {
-				k = 1;
-				boolean foundUnique = false;
-				while (!foundUnique) {
-					String append = "(" + k + ")";
-					if (uniqueNames.contains(names[i] + append)) {
-						k++;
-					} else {
-						uniqueNames.add(names[i] + append);
-						validNames[i] = names[i] + append;
-						foundUnique = true;
-					}
+				int k = 1;
+				while (uniqueNames.contains(currentEntry + "(" + k + ")")) {
+					k++;
 				}
+				uniqueNames.add(currentEntry + "(" + k + ")");
+				validNames[i] = currentEntry + "(" + k + ")";
 			}
 		}
 		return validNames;
