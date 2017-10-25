@@ -25,40 +25,21 @@ public class UniqueFileCatalog {
 			if (!uniqueNames.contains(names[i])) {
 				uniqueNames.add(names[i]);
 				validNames[i] = names[i];
-			} 
-		}
-		
-		for (int i = 0; i <names.length; i++) {
-			if (validNames[i] == null) {
+			} else {
 				k = 1;
-				String append = "(" + k + ")";
-			
-				while (uniqueNames.contains(names[i] + append)) {
-					k++;
+				boolean foundUnique = false;
+				while (!foundUnique) {
+					String append = "(" + k + ")";
+					if (uniqueNames.contains(names[i] + append)) {
+						k++;
+					} else {
+						uniqueNames.add(names[i] + append);
+						validNames[i] = names[i] + append;
+						foundUnique = true;
+					}
 				}
-				
-				validNames[i] = names[i] + append;
 			}
 		}
-		
-//		for (int i = 0; i < names.length; i++) {
-//			if (!uniqueNames.contains(names[i])) {
-//				uniqueNames.put(names[i]);
-//				validNames[i] = names[i];
-//			} else {
-//				int k = 1;
-//				String append = "(" + k + ")";
-//				String checkKey = names[i] + append;
-//				while (uniqueNames.get(checkKey) != null) {
-//					k++;
-//				}
-//				uniqueNames.put(names[i] + append, names[i] + append);
-//				validNames[i] = names[i] + append;
-//			}
-//		}
-
-		// need a way to keep track of additions to names...
 		return validNames;
 	}
-
 }
