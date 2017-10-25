@@ -29,4 +29,14 @@ public class UniqueFileCatalogTest {
 				"a(11)" };
 		assertThat(underTest.fileNaming(input), is(output));
 	}
+
+	@Test
+	public void shouldReturnUniqueArrayTestCase3() {
+		String[] input = { "dd", "dd(1)", "dd(2)", "dd", "dd(1)", "dd(1)(2)", "dd(1)(1)", "dd", "dd(1)" };
+
+		String[] output = { "dd", "dd(1)", "dd(2)", "dd(3)", "dd(1)(1)", "dd(1)(2)", "dd(1)(1)(1)", "dd(4)",
+				"dd(1)(3)" };
+		assertThat(underTest.fileNaming(input), is(output));
+	}
+
 }
