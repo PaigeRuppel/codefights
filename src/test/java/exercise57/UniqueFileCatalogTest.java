@@ -38,5 +38,7 @@ public class UniqueFileCatalogTest {
 				"dd(1)(3)" };
 		assertThat(underTest.fileNaming(input), is(output));
 	}
+	
+	
 
 }

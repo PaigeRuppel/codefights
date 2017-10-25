@@ -1,6 +1,8 @@
 package exercise57;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class UniqueFileCatalog {
@@ -13,25 +15,28 @@ public class UniqueFileCatalog {
 	 * 
 	 * Return an array of names that will be given to the files.
 	 */
+	Set<String> uniqueNames = new HashSet<String>();
+	List<String> validNames = new ArrayList<>();
 
 	public String[] fileNaming(String[] names) {
-		Set<String> uniqueNames = new HashSet<String>();
-		String[] validNames = new String[names.length];
-		for (int i = 0; i < names.length; i++) {
-			String currentEntry = names[i];
+		for (String currentEntry: names) {
 			if (!uniqueNames.contains(currentEntry)) {
-				uniqueNames.add(currentEntry);
-				validNames[i] = currentEntry;
+				addEntryToSetAndList(currentEntry);
 			} else {
 				int k = 1;
 				while (uniqueNames.contains(appendSuffixToFile(currentEntry, k))) {
 					k++;
 				}
-				uniqueNames.add(appendSuffixToFile(currentEntry, k));
-				validNames[i] = appendSuffixToFile(currentEntry, k);
+				String uniqueEntry = appendSuffixToFile(currentEntry, k); 
+				addEntryToSetAndList(uniqueEntry);
 			}
 		}
-		return validNames;
+		return validNames.toArray(new String[names.length]);
+	}
+
+	private void addEntryToSetAndList(String currentEntry) {
+		uniqueNames.add(currentEntry);
+		validNames.add(currentEntry);
 	}
 
 	private String appendSuffixToFile(String currentEntry, int k) {
