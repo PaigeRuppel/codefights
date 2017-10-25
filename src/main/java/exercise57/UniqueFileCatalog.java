@@ -24,13 +24,17 @@ public class UniqueFileCatalog {
 				validNames[i] = currentEntry;
 			} else {
 				int k = 1;
-				while (uniqueNames.contains(currentEntry + "(" + k + ")")) {
+				while (uniqueNames.contains(appendSuffixToFile(currentEntry, k))) {
 					k++;
 				}
-				uniqueNames.add(currentEntry + "(" + k + ")");
-				validNames[i] = currentEntry + "(" + k + ")";
+				uniqueNames.add(appendSuffixToFile(currentEntry, k));
+				validNames[i] = appendSuffixToFile(currentEntry, k);
 			}
 		}
 		return validNames;
+	}
+
+	private String appendSuffixToFile(String currentEntry, int k) {
+		return currentEntry + "(" + k + ")";
 	}
 }
