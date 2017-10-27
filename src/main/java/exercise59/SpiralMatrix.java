@@ -2,9 +2,36 @@ package exercise59;
 
 public class SpiralMatrix {
 
-	public int[][] spiralNumbers(int n) {
-		int[][] spiralMatrix = {{1,2,3},{8,9,4},{7,6,5}};;
-		return spiralMatrix;
-	}
+	int[][] spiralNumbers(int n) {
+		int[][] array = new int[n][n];
 
+		int left = 0;
+		int right = n - 1;
+		int top = 0;
+		int down = n - 1;
+
+		for (int counter = 1; counter <= n * n;) {
+			for (int col = left; col <= right; col++) {
+				array[top][col] = counter++;
+			}
+			top++;
+
+			for (int row = top; row <= down; row++) {
+				array[row][right] = counter++;
+			}
+			right--;
+
+			for (int col = right; col >= left; col--) {
+				array[down][col] = counter++;
+			}
+			down--;
+
+			for (int row = down; row >= top; row--) {
+				array[row][left] = counter++;
+			}
+			left++;
+		}
+
+		return array;
+	}
 }
