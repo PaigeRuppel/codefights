@@ -8,27 +8,38 @@ public class SpiralMatrix {
 		int left = 0;
 		int right = n - 1;
 		int top = 0;
-		int down = n - 1;
+		int bottom = n - 1;
 
 		for (int counter = 1; counter <= n * n;) {
+			//start at the top and build out first row
 			for (int col = left; col <= right; col++) {
 				array[top][col] = counter++;
 			}
+			//increment top (so that what is already filled in will not be overwritten)
 			top++;
 
-			for (int row = top; row <= down; row++) {
+			//start at remaining top for row and work down col
+			for (int row = top; row <= bottom; row++) {
 				array[row][right] = counter++;
 			}
+			
+			//decrement right so that filled in col will not be overwritten/edges move toward center
 			right--;
 
+			//start at the right edge and move towards the left
 			for (int col = right; col >= left; col--) {
-				array[down][col] = counter++;
+				array[bottom][col] = counter++;
 			}
-			down--;
+			
+			//decrement bottom edge/move towards center
+			bottom--;
 
-			for (int row = down; row >= top; row--) {
+			//start at the bottom row and move up to the top edge to build left col
+			for (int row = bottom; row >= top; row--) {
 				array[row][left] = counter++;
 			}
+			
+			//increment left edge/move towards center
 			left++;
 		}
 
