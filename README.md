@@ -2,5 +2,5 @@
 
 ### https://codefights.com/profile/paigeruppel
 
-My solutions for codefights exercises (with tests)  
+* My solutions for selected codefights exercises (with tests)  
 

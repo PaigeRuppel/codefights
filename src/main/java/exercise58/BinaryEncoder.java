@@ -20,7 +20,6 @@ public class BinaryEncoder {
 		}
 		String answer = sb.toString();
 		return answer;
-		
 	}
 
 }
