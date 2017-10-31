@@ -5,7 +5,7 @@ public class SudokuLite {
 
 	public boolean sudoku(int[][] grid) {
 		// TODO Auto-generated method stub
-		return isValidHorizontal(grid);
+		return isValidHorizontal(grid) && isValidSmallerGrids(grid);
 	}
 
 	private boolean isValidHorizontal(int[][] grid) {
@@ -27,7 +27,24 @@ public class SudokuLite {
 	}
 	
 	private boolean isValidSmallerGrids(int[][] grid) {
-		 
+		Set<Integer> values = buildPossibleNumbersSet();
+		int rowStart = 0;
+		int colStart = 0;
+		boolean isValid = true;
+		
+		for (int row = rowStart; rowStart < grid.length - 2; rowStart++) {
+			 for (int col = colStart; col < colStart + 3; col++) {
+				 int currentNumber = grid[row][col];
+				 if (values.contains(currentNumber)) {
+					 values.remove(currentNumber);
+				 } else {
+					 return false;
+				 } 
+			 }
+			 values = buildPossibleNumbersSet();
+			 rowStart += 3;
+		}
+		return isValid;
 	}
 
 	private Set<Integer> buildPossibleNumbersSet() {
