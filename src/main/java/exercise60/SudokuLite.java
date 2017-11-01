@@ -1,3 +1,4 @@
+package exercise60;
 import java.util.HashSet;
 import java.util.Set;
 
