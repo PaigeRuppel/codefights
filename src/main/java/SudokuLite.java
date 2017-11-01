@@ -4,7 +4,7 @@ import java.util.Set;
 public class SudokuLite {
 
 	public boolean sudoku(int[][] grid) {
-		return isValidHorizontal(grid) && isValidVertical(grid) && isValidSmallGrids(grid);
+		return isValidHorizontalAndVertical(grid) && isValidSmallGrids(grid);
 	}
 
 	private boolean isValidSmallGrids(int[][] grid) {
@@ -28,52 +28,37 @@ public class SudokuLite {
 		}
 		return isValid;
 	}
-	private boolean isValidHorizontal(int[][] grid) {
-		Set<Integer> values = buildPossibleNumbersSet();
+	
+	private boolean isValidHorizontalAndVertical(int[][] grid) {
+		Set<Integer> horValues = buildPossibleNumbersSet();
+		Set<Integer> verValues = buildPossibleNumbersSet();
 		boolean isValid = true;
-		for (int row = 0; row < grid.length; row++) {
-			for (int col = 0; col < grid[row].length; col++) {
-				int currentNumber = grid[row][col];
-				if (values.contains(currentNumber)) {
-					values.remove(currentNumber);
-				} else {
+		for (int coord1 = 0; coord1 < grid.length; coord1++) {
+			for (int coord2 = 0; coord2 < grid[coord1].length; coord2++) {
+				int horNumber = grid[coord1][coord2];
+				int verNumber = grid[coord2][coord1];
+				if (!horValues.contains(horNumber)) {
 					isValid = false;
 					break;
 				}
-			}
-			values = buildPossibleNumbersSet();
-		}
-		return isValid;
-	}
-
-	private boolean isValidVertical(int[][] grid) {
-		Set<Integer> values = buildPossibleNumbersSet();
-		boolean isValid = true;
-		for (int col = 0; col < grid[0].length; col++) {
-			for (int row = 0; row < grid.length; row++) {
-				int currentNumber = grid[row][col];
-				if (!values.contains(currentNumber)) {
+				if (!verValues.contains(verNumber)) {
 					isValid = false;
 					break;
 				}
-				values.remove(currentNumber);
+				horValues.remove(horNumber);
+				verValues.remove(verNumber);
 			}
-			values = buildPossibleNumbersSet();
+			horValues = buildPossibleNumbersSet();
+			verValues = buildPossibleNumbersSet();
 		}
 		return isValid;
 	}
 
 	private Set<Integer> buildPossibleNumbersSet() {
 		Set<Integer> oneThroughNine = new HashSet<>();
-		oneThroughNine.add(1);
-		oneThroughNine.add(2);
-		oneThroughNine.add(3);
-		oneThroughNine.add(4);
-		oneThroughNine.add(5);
-		oneThroughNine.add(6);
-		oneThroughNine.add(7);
-		oneThroughNine.add(8);
-		oneThroughNine.add(9);
+		for (int i = 1; i < 10; i++) {
+			oneThroughNine.add(i);
+		}
 		return oneThroughNine;
 	}
 
